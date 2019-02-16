@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 // -------------------------------------------------------------------------
 
 /**
@@ -44,12 +47,36 @@
      *
      */
     static double [] quickSort (double a[]){
-		return a;
-	
-		 //todo: implement the sort
-
+    	if(a.length <=1)
+    	{
+    		return a;
+    	}
+    	else
+    	{
+        	//Randomising array first
+        	Random num = ThreadLocalRandom.current();
+            for (int i = a.length - 1; i > 0; i--)
+            {
+              int index = num.nextInt(i + 1);
+              double current = a[index];
+              a[index] = a[i];
+              a[i] = current;
+            }
+            //now the actual sorting
+            a = quicksort(a, a[0], a[a.length-1]);
+    		return a;
+    	}
     }
-    //end quicksort
+    
+    
+    private static double[] quicksort(double[] a, double low, double high) {
+    	if(low < high)
+    	{
+    		
+    	}
+		return a;
+	}
+	//end quicksort
 
     /**
      * Sorts an array of doubles using Merge Sort.
