@@ -33,9 +33,8 @@
     		
     	}
 		return a;
-
-        //todo: implement the sort
-    }//end insertionsort
+    }
+    //end insertionsort
 
     /**
      * Sorts an array of doubles using Quick Sort.
@@ -49,7 +48,8 @@
 	
 		 //todo: implement the sort
 
-    }//end quicksort
+    }
+    //end quicksort
 
     /**
      * Sorts an array of doubles using Merge Sort.
@@ -71,7 +71,8 @@
 
 		 //todo: implement the sort
 	
-    }//end mergesortIterative
+    }
+    //end mergesortIterative
     
     
     
@@ -88,7 +89,8 @@
 
     	//todo: implement the sort
 	
-   }//end mergeSortRecursive
+   }
+    //end mergeSortRecursive
     	
     
     /**
@@ -99,11 +101,23 @@
      *
      */
     static double [] selectionSort (double a[]){
+    	for(int i=0;i<a.length-1;i++)
+    	{
+    		int temp = i ;
+    		for(int j=i+1;j<a.length;j++)
+    		{
+    			if(a[j] < a[temp])
+    			{
+    				temp = j;
+    			}
+    		}
+    		double temporary = a[temp];
+    		a[temp] = a[i];
+    		a[i] = temporary;
+    	}
 		return a;
-
-         //todo: implement the sort
-
-    }//end selectionsort
+    }
+    //end selectionsort
 
    
 
@@ -113,5 +127,6 @@
         //todo: do experiments as per assignment instructions
     }
 
- }//end class
+ }
+ //end class
 
