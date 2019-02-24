@@ -147,7 +147,7 @@ public class SortComparisonTest
 				System.out.println("Execution time in nanoseconds is:" + timeElapsed);
 			}
 		}
-		inFile.close();
+		inFile.close(); 
 	}
 
 }
