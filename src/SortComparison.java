@@ -146,7 +146,7 @@ class SortComparison {
 	static double[] mergeSortRecursive (double a[]) {
 		double[] aux = new double[a.length];
 		mergeSort(a,aux,0,a.length-1);
-		return a; 
+		return a;
 
 	}
 	
