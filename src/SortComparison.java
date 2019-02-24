@@ -134,7 +134,7 @@ class SortComparison {
 
 	//end mergesortIterative
 
- 
+
 
 	/**
 	 * Sorts an array of doubles using recursive implementation of Merge Sort.
