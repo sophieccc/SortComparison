@@ -116,7 +116,7 @@ public class SortComparisonTest
 				long timeElapsed = endTime - startTime;
 				System.out.println("Execution time in nanoseconds is:" + timeElapsed);
 			}
-			System.out.println("\nQuick sort");
+			System.out.println("\nQuick sort"); 
 			for(int j=0;j<4;j++)
 			{
 				currentArray = array.clone();
