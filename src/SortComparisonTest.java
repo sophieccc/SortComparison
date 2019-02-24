@@ -1,3 +1,30 @@
+/* COMMENTS
+ * 
+a. Which of the sorting algorithms does the order of input have an impact on? Why?
+
+b. Which algorithm has the biggest difference between the best and worst performance, based
+on the type of input, for the input of size 1000? Why?
+
+c. Which algorithm has the best/worst scalability, i.e., the difference in performance time
+based on the input size? Please consider only input files with random order for this answer.
+
+d. Did you observe any difference between iterative and recursive implementations of merge
+sort?
+
+e. Which algorithm is the fastest for each of the 7 input files? 
+ *
+ *
+ * RESULTS:
+                    | Insert  |  Quick  |  Merge  |  Recursive  |  Merge  |  Iterative  |  Selection  |
+          10 random |
+         100 random |
+        1000 random |
+    1000 few unique |
+1000 nearly ordered |
+ 1000 reverse order |
+        1000 sorted |
+ */
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -168,8 +195,7 @@ public class SortComparisonTest
      */
     public static void main(String[] args) throws FileNotFoundException
     {
-    	System.out.println("hi");
-	/*	double[] array = null;
+		double[] array = null;
 		Scanner inFile = null;
 		for(int y=0; y<7;y++)
 		{ 
@@ -268,7 +294,7 @@ public class SortComparisonTest
 			}
 		}
 		inFile.close(); 
-		*/
+		
 	}
 
 }
