@@ -1,7 +1,9 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import org.junit.Test;
@@ -34,11 +36,127 @@ public class SortComparisonTest
     @Test
     public void testEmpty()
     {
+    	double[] array = null;
+    	SortComparison.insertionSort(array);
+    	assertEquals(SortComparison.insertionSort(array),null);
+    	array = null;
+    	SortComparison.selectionSort(array);
+    	assertEquals(SortComparison.insertionSort(array),null);
+    	array = null;
+    	SortComparison.quickSort(array);
+    	assertEquals(SortComparison.insertionSort(array),null);
+    	array = null;
+    	SortComparison.mergeSortRecursive(array);
+    	assertEquals(SortComparison.insertionSort(array),null);
+    	array = null;
+    	SortComparison.mergeSortIterative(array);
+    	assertEquals(SortComparison.insertionSort(array),null);
     }
 
 
-    // TODO: add more tests here. Each line of code and each decision in Collinear.java should
-    // be executed at least once from at least one test.
+	@Test
+    public void testInsertion()
+    {
+    	double[] array = {1};
+    	assertEquals(SortComparison.insertionSort(array),array);
+    	double[] array2 = {};
+    	assertEquals(SortComparison.insertionSort(array2),array2);
+    	double[] array3 = {1,2};
+    	assertEquals(SortComparison.insertionSort(array3),array3);
+    	double[] array4 = {2,1};
+    	SortComparison.insertionSort(array4);
+    	assertTrue(Arrays.equals(array4,array3));
+    }
+    
+    @Test
+    public void testSelection()
+    {
+    	double[] array = {1};
+    	assertEquals(SortComparison.selectionSort(array),array);
+    	double[] array2 = {};
+    	assertEquals(SortComparison.selectionSort(array2),array2);
+    	double[] array3 = {1,2};
+    	assertEquals(SortComparison.selectionSort(array3),array3);
+    	double[] array4 = {2,1};
+    	SortComparison.selectionSort(array4);
+    	assertTrue(Arrays.equals(array4,array3));
+    	
+    }
+    
+    @Test
+    public void testQuick()
+    {
+    	double[] array = {1};
+    	assertEquals(SortComparison.quickSort(array),array);
+    	double[] array2 = {};
+    	assertEquals(SortComparison.quickSort(array2),array2);
+    	double[] array3 = {1,2};
+    	assertEquals(SortComparison.quickSort(array3),array3);
+    	double[] array4 = {2,1};
+    	SortComparison.quickSort(array4);
+    	assertTrue(Arrays.equals(array4,array3));
+    	double[] array5 = {2,1,3};
+    	double[] array6 = {1,2,3};
+    	SortComparison.quickSort(array5);
+    	assertTrue(Arrays.equals(array5,array6));
+    	double[] array7 = {3,3,3};
+    	SortComparison.quickSort(array7);
+    	assertTrue(Arrays.equals(array7,array7));
+    	double[] array8 = {2,3,3};
+    	SortComparison.quickSort(array8);
+    	assertTrue(Arrays.equals(array8,array8));
+    	
+    }
+    
+    @Test
+    public void testMergeRec()
+    {
+    	double[] array = {1};
+    	assertEquals(SortComparison.mergeSortRecursive(array),array);
+    	double[] array2 = {};
+    	assertEquals(SortComparison.mergeSortRecursive(array2),array2);
+       	double[] array3 = {1,2};
+    	assertEquals(SortComparison.mergeSortRecursive(array3),array3);
+    	double[] array4 = {2,1};
+    	SortComparison.mergeSortRecursive(array4);
+    	assertTrue(Arrays.equals(array4,array3));
+    	double[] array5 = {2,1,3};
+    	double[] array6 = {1,2,3};
+    	SortComparison.mergeSortRecursive(array5);
+    	assertTrue(Arrays.equals(array5,array6));
+    	double[] array7 = {3,3,3};
+    	SortComparison.mergeSortRecursive(array7);
+    	assertTrue(Arrays.equals(array7,array7));
+    	double[] array8 = {2,3,3};
+    	SortComparison.mergeSortRecursive(array8);
+    	assertTrue(Arrays.equals(array8,array8));
+    	
+    }
+    
+    @Test
+    public void testMergeIt()
+    {
+    	double[] array = {1};
+    	assertEquals(SortComparison.mergeSortIterative(array),array);
+    	double[] array2 = {};
+    	assertEquals(SortComparison.mergeSortIterative(array2),array2);
+       	double[] array3 = {1,2};
+    	assertEquals(SortComparison.mergeSortIterative(array3),array3);
+    	double[] array4 = {2,1};
+    	SortComparison.mergeSortIterative(array4);
+    	assertTrue(Arrays.equals(array4,array3));
+    	double[] array5 = {2,1,3};
+    	double[] array6 = {1,2,3};
+    	SortComparison.mergeSortIterative(array5);
+    	assertTrue(Arrays.equals(array5,array6));
+    	double[] array7 = {3,3,3};
+    	SortComparison.mergeSortIterative(array7);
+    	assertTrue(Arrays.equals(array7,array7));
+    	double[] array8 = {2,3,3};
+    	SortComparison.mergeSortIterative(array8);
+    	assertTrue(Arrays.equals(array8,array8));
+    	
+    }
 
     // ----------------------------------------------------------
     /**
@@ -46,10 +164,12 @@ public class SortComparisonTest
      *  Use this main method to create the experiments needed to answer the experimental performance questions of this assignment.
      * @throws FileNotFoundException 
      *
+     *
      */
     public static void main(String[] args) throws FileNotFoundException
     {
-		double[] array = null;
+    	System.out.println("hi");
+	/*	double[] array = null;
 		Scanner inFile = null;
 		for(int y=0; y<7;y++)
 		{ 
@@ -148,6 +268,7 @@ public class SortComparisonTest
 			}
 		}
 		inFile.close(); 
+		*/
 	}
 
 }

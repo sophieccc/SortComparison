@@ -1,7 +1,5 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 // -------------------------------------------------------------------------
@@ -24,21 +22,34 @@ class SortComparison {
 	 *
 	 */
 	static double [] insertionSort (double a[]){
-		double temp;
-		for(int i=1; i < a.length; i++)
+		if(a!=null)
 		{
-			for(int j = i;j>0;j--)
+			if(a.length <=1)
 			{
-				if(a[j] < a[j-1])
-				{
-					temp = a[j-1];
-					a[j-1]=a[j];
-					a[j]=temp;
-				}
+				return a;
 			}
-
+			else
+			{
+				double temp;
+				for(int i=1; i < a.length; i++)
+				{
+					for(int j = i;j>0;j--)
+					{
+						if(a[j] < a[j-1])
+						{
+							temp = a[j-1];
+							a[j-1]=a[j];
+							a[j]=temp;
+						}
+					}
+				}
+				return a;
+			}
 		}
-		return a;
+		else
+		{
+			return null;
+		}
 	}
 	//end insertionsort
 
@@ -50,25 +61,32 @@ class SortComparison {
 	 *
 	 */
 	static double [] quickSort (double a[]){
-		if(a.length <=1)
+		if(a!=null)
 		{
-			return a;
+			if(a.length <=1)
+			{
+				return a;
+			}
+			else
+			{
+				//Randomising array first
+				Random num = ThreadLocalRandom.current();
+				for (int i = a.length - 1; i > 0; i--)
+				{
+					int index = num.nextInt(i + 1);
+					double current = a[index];
+					a[index] = a[i];
+					a[i] = current;
+				}
+				//now the actual sorting
+				 
+				quickSort(a, 0, a.length-1);
+				return a;
+			}
 		}
 		else
 		{
-			//Randomising array first
-			Random num = ThreadLocalRandom.current();
-			for (int i = a.length - 1; i > 0; i--)
-			{
-				int index = num.nextInt(i + 1);
-				double current = a[index];
-				a[index] = a[i];
-				a[i] = current;
-			}
-			//now the actual sorting
-			 
-			quickSort(a, 0, a.length-1);
-			return a;
+			return null;
 		}
 	}
 
@@ -86,7 +104,8 @@ class SortComparison {
 		int i = low;
 		int j = (high+1);
 		double pivot = array[low];
-		while(true) {
+		boolean go = true;
+		while(go) {
 		while((array[++i]< pivot)) {
 		if(i == high) break;
 		}
@@ -94,9 +113,12 @@ class SortComparison {
 		if(j == low) break;
 		}
 		if(i >= j) break;
-		double temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
+		else
+		{
+			double temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+		}
 		}
 		array[low] = array[j];
 		array[j] = pivot;
@@ -120,15 +142,29 @@ class SortComparison {
 	 */
 
 	static double[] mergeSortIterative (double a[]) {
-		double aux[] = new double[a.length];
-		for(int i=1; i < a.length;i+=i)
+		if(a!=null)
 		{
-			for(int low = 0; low < a.length-i; low +=i+i)
+			if(a.length <=1)
 			{
-				merge(a,aux,low,(low+i)-1,Math.min(low+i+i-1, a.length-1));
+				return a;
+			}
+			else
+			{
+				double aux[] = new double[a.length];
+				for(int i=1; i < a.length;i+=i)
+				{
+					for(int low = 0; low < a.length-i; low +=i+i)
+					{
+						merge(a,aux,low,(low+i)-1,Math.min(low+i+i-1, a.length-1));
+					}
+				}
+				return a;
 			}
 		}
-		return a;
+		else
+		{
+			return null;
+		}
 
 	}
 
@@ -144,9 +180,24 @@ class SortComparison {
 	 * @return after the method returns, the array must be in ascending sorted order.
 	 */
 	static double[] mergeSortRecursive (double a[]) {
-		double[] aux = new double[a.length];
-		mergeSort(a,aux,0,a.length-1);
-		return a;
+		if(a!=null)
+		{
+			if(a.length <=1)
+			{
+				return a;
+			}
+			else
+			{
+				double[] aux = new double[a.length];
+				mergeSort(a,aux,0,a.length-1);
+				return a;
+			}
+		}
+		else
+		{
+			return null;
+		}
+
 
 	}
 	
@@ -201,29 +252,45 @@ class SortComparison {
 	 *
 	 */
 	static double [] selectionSort (double a[]){
-		for(int i=0;i<a.length-1;i++)
+		if(a!=null)
 		{
-			int temp = i ;
-			for(int j=i+1;j<a.length;j++)
+			if(a.length <=1)
 			{
-				if(a[j] < a[temp])
-				{
-					temp = j;
-				}
+				return a;
 			}
-			double temporary = a[temp];
-			a[temp] = a[i];
-			a[i] = temporary;
+			else
+			{
+				for(int i=0;i<a.length-1;i++)
+				{
+					int temp = i ;
+					for(int j=i+1;j<a.length;j++)
+					{
+						if(a[j] < a[temp])
+						{
+							temp = j;
+						}
+					}
+					double temporary = a[temp];
+					a[temp] = a[i];
+					a[i] = temporary;
+				}
+				return a;
+			}
 		}
-		return a;
+		else
+		{
+			return null;
+		}
 	}
 	//end selectionsort
 
 
 
-
-	public static void main(String[] args) throws FileNotFoundException {
+/*
+	public static void main(String[] args){
+		
 	}
+	*/
 }
 
 //end class
