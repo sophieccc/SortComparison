@@ -78,7 +78,7 @@ class SortComparison {
 					a[i] = current;
 				}
 				//now the actual sorting
-				 
+
 				quickSort(a, 0, a.length-1);
 				return a;
 			}
@@ -94,35 +94,35 @@ class SortComparison {
 		if(high <= low) {
 			return;
 		}
-			int pivot = partition(a, low, high);
-			quickSort(a, low, pivot-1);
-			quickSort(a, pivot+1, high);
+		int pivot = partition(a, low, high);
+		quickSort(a, low, pivot-1);
+		quickSort(a, pivot+1, high);
 	}
-	
+
 	private static int partition(double[] array, int low, int high) {
 		int i = low;
 		int j = (high+1);
 		double pivot = array[low];
 		boolean go = true;
 		while(go) {
-		while((array[++i]< pivot)) {
-		if(i == high) break;
-		}
-		while(pivot < array[--j]) {
-		if(j == low) break;
-		}
-		if(i >= j) break;
-		else
-		{
-			double temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-		}
+			while((array[++i]< pivot)) {
+				if(i == high) break;
+			}
+			while(pivot < array[--j]) {
+				if(j == low) break;
+			}
+			if(i >= j) break;
+			else
+			{
+				double temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
 		}
 		array[low] = array[j];
 		array[j] = pivot;
 		return j;
-		}
+	}
 	//end quicksort
 
 	/**
@@ -199,7 +199,7 @@ class SortComparison {
 
 
 	}
-	
+
 	private static void mergeSort (double[] a, double[] aux, int low, int high)
 	{
 		if(high <= low)
@@ -211,7 +211,7 @@ class SortComparison {
 		mergeSort(a,aux,mid+1,high);
 		merge(a,aux,low,mid,high);
 	}
-	
+
 	private static void merge (double[] a, double[] aux, int low, int mid, int high)
 	{
 		for(int i= low;i<=high; i++)
@@ -285,11 +285,11 @@ class SortComparison {
 
 
 
-/*
+	/*
 	public static void main(String[] args){
-		
+
 	}
-	*/
+	 */
 }
 
 //end class
