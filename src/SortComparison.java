@@ -95,8 +95,8 @@ class SortComparison {
 			return;
 		}
 		int pivot = partition(a, low, high);
-		quickSort(a, pivot+1, high);
 		quickSort(a, low, pivot-1);
+		quickSort(a, pivot+1, high);
 	}
 
 	private static int partition(double[] array, int low, int high) {
@@ -105,29 +105,18 @@ class SortComparison {
 		double pivot = array[low];
 		boolean go = true;
 		while(go) {
-			while(array[++i]< pivot) 
-			{
-				if(i == high) 
-				{
-					break;
-				}
+			while((array[++i]< pivot)) {
+				if(i == high) break;
 			}
-			while(pivot < array[--j]) 
-			{
-				if(j == low) 
-				{
-					break;
-				}
+			while(pivot < array[--j]) {
+				if(j == low) break;
 			}
-			if(i >= j) 
-			{
-				break;
-			}
+			if(i >= j) break;
 			else
 			{
-				double temp = array[j];
-				array[j] = array[i];
-				array[i] = temp;
+				double temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
 			}
 		}
 		array[low] = array[j];
@@ -163,10 +152,9 @@ class SortComparison {
 				double aux[] = new double[a.length];
 				for(int i=1; i < a.length;i+=i)
 				{
-					int twoI = i+i;
-					for(int low = 0; low < a.length-i; low +=twoI)
+					for(int low = 0; low < a.length-i; low +=i+i)
 					{
-						merge(a,aux,low,(low+i)-1,Math.min((low+twoI)-1, a.length-1));
+						merge(a,aux,low,(low+i)-1,Math.min(low+i+i-1, a.length-1));
 					}
 				}
 				return a;
@@ -219,8 +207,8 @@ class SortComparison {
 			return;
 		}
 		int mid = low + ((high-low) /2);
-		mergeSort(a,aux,mid+1,high);
 		mergeSort(a,aux,low,mid);
+		mergeSort(a,aux,mid+1,high);
 		merge(a,aux,low,mid,high);
 	}
 
