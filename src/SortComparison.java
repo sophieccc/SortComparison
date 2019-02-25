@@ -107,17 +107,11 @@ class SortComparison {
 		while(go) {
 			while(array[++i]< pivot) 
 			{
-				if(i == high) 
-				{
-					break;
-				}
+				if(i == high) {break;}
 			}
 			while(pivot < array[--j]) 
 			{
-				if(j == low) 
-				{
-					break;
-				}
+				if(j == low) {break;}
 			}
 			if(i >= j) 
 			{
